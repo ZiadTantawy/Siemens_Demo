@@ -24,12 +24,19 @@ class Settings(BaseSettings):
     # CORS Configuration
     ALLOWED_ORIGINS: str = "*"
     
-    # OpenAI Configuration (for embeddings and chat)
-    OPENAI_API_KEY: Optional[str] = None
+    # Groq API Configuration (for chat)
+    GROQ_API_KEY: Optional[str] = None
     
-    # Embedding Configuration
-    EMBEDDING_MODEL: str = "text-embedding-3-small"
-    CHAT_MODEL: str = "gpt-4o-mini"
+    # Model Configuration
+    EMBEDDING_MODEL: str = "BAAI/bge-base-en-v1.5"
+    CHAT_MODEL: str = "qwen/qwen3-32b"
+    
+    # RAG Ingestion Configuration
+    COLLECTION_NAME: str = "pdf_docs"
+    SOURCE_DIR: str = "./pdfs"
+    CHUNK_SIZE: int = 800
+    CHUNK_OVERLAP: int = 150
+    BATCH_SIZE: int = 64
     
     @property
     def mongodb_url(self) -> str:
