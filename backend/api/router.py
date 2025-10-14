@@ -2,7 +2,7 @@
 Main API router configuration
 """
 from fastapi import APIRouter
-from app.api.endpoints import chat, documents
+from api.endpoints import chat, documents
 
 api_router = APIRouter()
 

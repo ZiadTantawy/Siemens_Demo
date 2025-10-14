@@ -4,7 +4,7 @@ API endpoints for user chat input and responses
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
-from app.schemas.chat import UserMessage, BotResponse
+from schemas.chat import UserMessage, BotResponse
     
 router = APIRouter()
 
