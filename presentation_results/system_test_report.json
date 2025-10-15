@@ -1,0 +1,480 @@
+{
+  "timestamp": "2025-10-16 00:37:47",
+  "test_duration_seconds": 354.5143940448761,
+  "system_health": {
+    "backend_api": true,
+    "backend_response_time": 0.010264158248901367,
+    "errors": []
+  },
+  "kb_tests": {
+    "total_questions": 30,
+    "successful": 24,
+    "failed": 6,
+    "avg_response_time": 9.625360735257466,
+    "avg_keyword_coverage": 0.6427777777777778,
+    "avg_confidence": 0.9183333333333332,
+    "with_sources": 30,
+    "with_inline_citations": 19,
+    "by_difficulty": {
+      "easy": {
+        "total": 3,
+        "success": 3
+      },
+      "medium": {
+        "total": 14,
+        "success": 11
+      },
+      "hard": {
+        "total": 13,
+        "success": 10
+      }
+    },
+    "by_category": {
+      "architecture_basics": {
+        "total": 1,
+        "success": 1
+      },
+      "attention_mechanism": {
+        "total": 2,
+        "success": 1
+      },
+      "architecture_details": {
+        "total": 2,
+        "success": 2
+      },
+      "architecture_components": {
+        "total": 4,
+        "success": 4
+      },
+      "architecture_innovation": {
+        "total": 1,
+        "success": 1
+      },
+      "architecture_hyperparameters": {
+        "total": 1,
+        "success": 1
+      },
+      "architecture_comparison": {
+        "total": 1,
+        "success": 1
+      },
+      "security_basics": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_types": {
+        "total": 3,
+        "success": 2
+      },
+      "countermeasures": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_methods": {
+        "total": 3,
+        "success": 3
+      },
+      "security_primitives": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_comparison": {
+        "total": 1,
+        "success": 1
+      },
+      "side_channel_attacks": {
+        "total": 1,
+        "success": 1
+      },
+      "model_comparison": {
+        "total": 1,
+        "success": 0
+      },
+      "complexity_analysis": {
+        "total": 1,
+        "success": 1
+      },
+      "classification": {
+        "total": 1,
+        "success": 0
+      },
+      "mathematical_formulation": {
+        "total": 1,
+        "success": 1
+      },
+      "security_threats": {
+        "total": 1,
+        "success": 0
+      },
+      "architecture_features": {
+        "total": 1,
+        "success": 0
+      },
+      "security_defense": {
+        "total": 1,
+        "success": 1
+      }
+    },
+    "failed_questions": [
+      {
+        "id": "kb_004",
+        "question": "What is multi-head attention and why is it used?",
+        "keyword_coverage": 0.4,
+        "reason": "Low keyword coverage"
+      },
+      {
+        "id": "kb_012",
+        "question": "What are side-channel attacks?",
+        "keyword_coverage": 0.2,
+        "reason": "Low keyword coverage"
+      },
+      {
+        "id": "kb_021",
+        "question": "What are the advantages of the Transformer over RNN and LSTM models?",
+        "keyword_coverage": 0.0,
+        "reason": "Low keyword coverage"
+      },
+      {
+        "id": "kb_023",
+        "question": "How are hardware security vulnerabilities typically classified?",
+        "keyword_coverage": 0.4,
+        "reason": "Low keyword coverage"
+      },
+      {
+        "id": "kb_025",
+        "question": "What are the security implications of hardware reverse engineering?",
+        "keyword_coverage": 0.25,
+        "reason": "Low keyword coverage"
+      },
+      {
+        "id": "kb_027",
+        "question": "How does the Transformer handle variable length sequences?",
+        "keyword_coverage": 0.25,
+        "reason": "Low keyword coverage"
+      }
+    ],
+    "detailed_results": [
+      {
+        "id": "kb_001",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 2.7244181632995605,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_002",
+        "success": true,
+        "keyword_coverage": 0.6,
+        "confidence": 0.95,
+        "response_time": 1.6863670349121094,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_003",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 1.7136366367340088,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_004",
+        "success": false,
+        "keyword_coverage": 0.4,
+        "confidence": 0.95,
+        "response_time": 2.1559088230133057,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_005",
+        "success": true,
+        "keyword_coverage": 0.6,
+        "confidence": 0.95,
+        "response_time": 1.041304588317871,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_006",
+        "success": true,
+        "keyword_coverage": 0.6666666666666666,
+        "confidence": 0.95,
+        "response_time": 5.277251958847046,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_007",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 10.080243825912476,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_008",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 14.502515316009521,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_009",
+        "success": true,
+        "keyword_coverage": 0.5,
+        "confidence": 0.95,
+        "response_time": 11.77474069595337,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_010",
+        "success": true,
+        "keyword_coverage": 0.5,
+        "confidence": 0.95,
+        "response_time": 11.012457132339478,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_011",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 10.825725078582764,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_012",
+        "success": false,
+        "keyword_coverage": 0.2,
+        "confidence": 0.95,
+        "response_time": 9.917292594909668,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_013",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 10.849747896194458,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_014",
+        "success": true,
+        "keyword_coverage": 0.5,
+        "confidence": 0.95,
+        "response_time": 11.282646894454956,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_015",
+        "success": true,
+        "keyword_coverage": 0.6,
+        "confidence": 0.95,
+        "response_time": 10.484250783920288,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_016",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 13.132902383804321,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_017",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.5,
+        "response_time": 12.46709942817688,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_018",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 10.18654990196228,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_019",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 10.653458833694458,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_020",
+        "success": true,
+        "keyword_coverage": 0.6,
+        "confidence": 0.95,
+        "response_time": 10.875608205795288,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_021",
+        "success": false,
+        "keyword_coverage": 0.0,
+        "confidence": 0.95,
+        "response_time": 12.721634149551392,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_022",
+        "success": true,
+        "keyword_coverage": 0.6666666666666666,
+        "confidence": 0.8999999999999999,
+        "response_time": 8.640201091766357,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_023",
+        "success": false,
+        "keyword_coverage": 0.4,
+        "confidence": 0.95,
+        "response_time": 10.955894470214844,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_024",
+        "success": true,
+        "keyword_coverage": 0.5,
+        "confidence": 0.95,
+        "response_time": 10.746327877044678,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_025",
+        "success": false,
+        "keyword_coverage": 0.25,
+        "confidence": 0.5,
+        "response_time": 12.42536211013794,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_026",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 12.736236572265625,
+        "has_sources": true,
+        "has_inline_citations": false
+      },
+      {
+        "id": "kb_027",
+        "success": false,
+        "keyword_coverage": 0.25,
+        "confidence": 0.95,
+        "response_time": 12.30509901046753,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_028",
+        "success": true,
+        "keyword_coverage": 1.0,
+        "confidence": 0.95,
+        "response_time": 12.159244537353516,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_029",
+        "success": true,
+        "keyword_coverage": 0.75,
+        "confidence": 0.95,
+        "response_time": 12.302944898605347,
+        "has_sources": true,
+        "has_inline_citations": true
+      },
+      {
+        "id": "kb_030",
+        "success": true,
+        "keyword_coverage": 0.8,
+        "confidence": 0.95,
+        "response_time": 11.123751163482666,
+        "has_sources": true,
+        "has_inline_citations": false
+      }
+    ],
+    "success_rate": 0.8
+  },
+  "web_tests": {
+    "total_questions": 0,
+    "message": "Web fallback tests skipped"
+  },
+  "performance_metrics": {
+    "avg_latency": 10.982434352238974,
+    "min_latency": 10.348730087280273,
+    "max_latency": 11.784629344940186,
+    "latency_samples": [
+      10.348730087280273,
+      11.784629344940186,
+      10.81394362449646
+    ]
+  },
+  "summary": {
+    "overall_success_rate": 0.8,
+    "total_tests_run": 30,
+    "total_passed": 24,
+    "total_failed": 6,
+    "avg_response_time": 10.982434352238974,
+    "citation_rate": 1.0,
+    "avg_confidence": 0.9183333333333332,
+    "grade": "B"
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "area": "Accuracy",
+      "issue": "KB success rate is 80.0%, below 85% target",
+      "suggestion": "Review failed questions and improve retrieval or prompts"
+    },
+    {
+      "priority": "MEDIUM",
+      "area": "Response Quality",
+      "issue": "Keyword coverage is 64.3%, below 70% target",
+      "suggestion": "Enhance system prompt to include more specific terminology"
+    },
+    {
+      "priority": "MEDIUM",
+      "area": "Performance",
+      "issue": "Avg response time is 10.98s, above 5s target",
+      "suggestion": "Optimize retrieval or consider API tier upgrade"
+    },
+    {
+      "priority": "LOW",
+      "area": "Citations",
+      "issue": "Less than 80% of responses include inline citations",
+      "suggestion": "Emphasize citation requirements in system prompt"
+    }
+  ]
+}
