@@ -14,7 +14,7 @@ A production-ready Retrieval-Augmented Generation (RAG) chatbot system with inte
 
 ### Technical Highlights
 - **Vector Database**: Qdrant for high-performance semantic search
-- **LLM Integration**: Groq API with Llama 3.3 70B model
+- **LLM Integration**: Groq API with GPT-OSS-120B model
 - **Embeddings**: HuggingFace BGE-base-en-v1.5 for semantic understanding
 - **Agent Framework**: LangGraph for stateful agent workflows
 - **REST API**: FastAPI with async support and OpenAPI documentation
