@@ -3,8 +3,8 @@ RAG Chatbot API - Main FastAPI application.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.router import api_router
-from core.config import settings
+from backend.api.router import api_router
+from backend.core.config import settings
 
 
 app = FastAPI(

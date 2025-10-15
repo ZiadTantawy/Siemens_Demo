@@ -359,11 +359,14 @@ def ingest_pdf(pdf_path: Path, text_splitter: RecursiveCharacterTextSplitter,
                 point_id = batch_start + j
                 
                 # Create comprehensive payload with all metadata
+                # Use 'page_content' key for LangChain compatibility
                 payload = {
-                    "content": chunk["content"],           # Original text content
-                    "filename": pdf_path.name,             # Source filename
-                    "filepath": str(pdf_path),             # Full file path
-                    **chunk["metadata"]                     # All chunk metadata
+                    "page_content": chunk["content"],      # Original text content (LangChain compatible)
+                    "metadata": {
+                        "filename": pdf_path.name,         # Source filename
+                        "filepath": str(pdf_path),         # Full file path
+                        **chunk["metadata"]                # All chunk metadata
+                    }
                 }
                 
                 points.append(PointStruct(
