@@ -1,0 +1,272 @@
+[
+  {
+    "id": "kb_001",
+    "question": "What is the Transformer architecture?",
+    "category": "architecture_basics",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["self-attention", "encoder", "decoder", "architecture"],
+    "difficulty": "easy",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_002",
+    "question": "Explain the self-attention mechanism in the Transformer model.",
+    "category": "attention_mechanism",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["query", "key", "value", "scaled dot-product", "attention"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_003",
+    "question": "How many layers does the Transformer encoder have?",
+    "category": "architecture_details",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["6", "six", "layers", "encoder"],
+    "difficulty": "easy",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_004",
+    "question": "What is multi-head attention and why is it used?",
+    "category": "attention_mechanism",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["multi-head", "parallel", "attention", "representations", "subspaces"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_005",
+    "question": "What is the purpose of positional encoding in the Transformer?",
+    "category": "architecture_components",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["position", "sequence", "order", "encoding", "sinusoidal"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_006",
+    "question": "What activation function is used in the feed-forward network of the Transformer?",
+    "category": "architecture_details",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["ReLU", "activation", "feed-forward"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_007",
+    "question": "How does the Transformer avoid recurrence and convolutions?",
+    "category": "architecture_innovation",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["attention", "self-attention", "parallel", "recurrence"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_008",
+    "question": "What is the model dimension (d_model) used in the base Transformer?",
+    "category": "architecture_hyperparameters",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["512", "dimension", "model"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_009",
+    "question": "What are the key components of the Transformer encoder layer?",
+    "category": "architecture_components",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["self-attention", "feed-forward", "layer normalization", "residual"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_010",
+    "question": "How does the decoder differ from the encoder in the Transformer?",
+    "category": "architecture_comparison",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["masked", "encoder-decoder attention", "decoder", "encoder"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_011",
+    "question": "What is hardware security?",
+    "category": "security_basics",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["hardware", "security", "protection", "attacks"],
+    "difficulty": "easy",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_012",
+    "question": "What are side-channel attacks?",
+    "category": "attack_types",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["side-channel", "power", "timing", "electromagnetic", "information leakage"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_013",
+    "question": "Explain what a fault injection attack is.",
+    "category": "attack_types",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["fault", "injection", "voltage", "clock", "glitch"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_014",
+    "question": "What are common countermeasures against side-channel attacks?",
+    "category": "countermeasures",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["masking", "hiding", "randomization", "countermeasures"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_015",
+    "question": "What is power analysis in the context of hardware security?",
+    "category": "attack_methods",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["power", "consumption", "analysis", "DPA", "SPA"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_016",
+    "question": "What are Physically Unclonable Functions (PUFs)?",
+    "category": "security_primitives",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["PUF", "physically unclonable", "authentication", "unique"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_017",
+    "question": "What is a Trojan horse in hardware?",
+    "category": "attack_types",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["hardware trojan", "malicious", "backdoor", "circuit"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_018",
+    "question": "How does timing analysis work as a side-channel attack?",
+    "category": "attack_methods",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["timing", "execution time", "analysis", "variation"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_019",
+    "question": "What is the difference between simple power analysis (SPA) and differential power analysis (DPA)?",
+    "category": "attack_comparison",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["SPA", "DPA", "power analysis", "statistical"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_020",
+    "question": "What role does electromagnetic emanation play in hardware security?",
+    "category": "side_channel_attacks",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["electromagnetic", "EM", "emanation", "radiation", "side-channel"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_021",
+    "question": "What are the advantages of the Transformer over RNN and LSTM models?",
+    "category": "model_comparison",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["parallelization", "long-range", "dependencies", "training time"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_022",
+    "question": "What is the computational complexity of self-attention?",
+    "category": "complexity_analysis",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["O(n^2)", "sequence length", "complexity"],
+    "difficulty": "hard",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_023",
+    "question": "How are hardware security vulnerabilities typically classified?",
+    "category": "classification",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["physical", "logical", "side-channel", "fault", "classification"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_024",
+    "question": "What is the scaled dot-product attention formula?",
+    "category": "mathematical_formulation",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["softmax", "QK^T", "sqrt(d_k)", "scaled"],
+    "difficulty": "hard",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_025",
+    "question": "What are the security implications of hardware reverse engineering?",
+    "category": "security_threats",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["reverse engineering", "intellectual property", "cloning", "analysis"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_026",
+    "question": "What is layer normalization in the Transformer?",
+    "category": "architecture_components",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["layer normalization", "residual", "normalization"],
+    "difficulty": "medium",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_027",
+    "question": "How does the Transformer handle variable length sequences?",
+    "category": "architecture_features",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["padding", "masking", "attention", "sequence"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  },
+  {
+    "id": "kb_028",
+    "question": "What is differential power analysis?",
+    "category": "attack_methods",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["differential", "power analysis", "DPA", "statistical"],
+    "difficulty": "hard",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_029",
+    "question": "What are the main components of the feed-forward network in Transformer?",
+    "category": "architecture_components",
+    "source_pdf": "Attention is all you need",
+    "expected_keywords": ["linear", "ReLU", "feed-forward", "layers"],
+    "difficulty": "medium",
+    "query_type": "factual"
+  },
+  {
+    "id": "kb_030",
+    "question": "How do hardware security modules protect cryptographic keys?",
+    "category": "security_defense",
+    "source_pdf": "Modern Hardware Security",
+    "expected_keywords": ["HSM", "cryptographic", "keys", "protection", "tamper"],
+    "difficulty": "hard",
+    "query_type": "conceptual"
+  }
+]

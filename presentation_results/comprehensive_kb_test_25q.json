@@ -1,0 +1,502 @@
+{
+  "timestamp": "2025-10-15 23:58:02",
+  "total_questions": 25,
+  "test_cases": [
+    {
+      "question_id": "kb_001",
+      "question": "What is the Transformer architecture?",
+      "category": "architecture_basics",
+      "difficulty": "easy",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.75,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 2.266326904296875,
+      "response_preview": "The Transformer architecture is a sequence\u2011to\u2011sequence model that relies exclusively on stacked self\u2011attention mechanisms and point\u2011wise fully\u2011connected feed\u2011forward layers for both its encoder and de...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_002",
+      "question": "Explain the self-attention mechanism in the Transformer model.",
+      "category": "attention_mechanism",
+      "difficulty": "medium",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.6,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 1.7612481117248535,
+      "response_preview": "The self\u2011attention mechanism lets each position in a sequence compute a representation by attending to (i.e., weighting) all other positions in the same sequence, using the same set of vectors for que...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_003",
+      "question": "How many layers does the Transformer encoder have?",
+      "category": "architecture_details",
+      "difficulty": "easy",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.75,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 1.0148651599884033,
+      "response_preview": "The Transformer encoder consists of **6 identical layers**\u202f[1].\n\n- The encoder stack is defined as \u201ca stack of N\u202f=\u202f6 identical layers\u201d each containing a multi\u2011head self\u2011attention sub\u2011layer and a posit...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_004",
+      "question": "What is multi-head attention and why is it used?",
+      "category": "attention_mechanism",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.6,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 2.041304588317871,
+      "response_preview": "**Multi\u2011head attention** is a mechanism that runs several attention operations (\u201cheads\u201d) in parallel, each on linearly projected versions of the queries\u202f\\(Q\\), keys\u202f\\(K\\) and values\u202f\\(V\\); the results...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_005",
+      "question": "What is the purpose of positional encoding in the Transformer?",
+      "category": "architecture_components",
+      "difficulty": "medium",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.6,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 1.749074935913086,
+      "response_preview": "The positional encoding injects information about the relative or absolute positions of tokens into the model so that the Transformer can distinguish token order\u202f[1].\n\n- It is added to the input embed...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_006",
+      "question": "What activation function is used in the feed-forward network of the Transformer?",
+      "category": "architecture_details",
+      "difficulty": "medium",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.6666666666666666,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 5.2996745109558105,
+      "response_preview": "The feed\u2011forward network in the Transformer uses a **ReLU activation function** between its two linear transformations\u30101\u3011.  \n\n- The network is described as \u201ctwo linear transformations with a ReLU acti...",
+      "issues": [],
+      "has_inline_citations": false
+    },
+    {
+      "question_id": "kb_007",
+      "question": "How does the Transformer avoid recurrence and convolutions?",
+      "category": "architecture_innovation",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.75,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 10.40848445892334,
+      "response_preview": "The Transformer avoids recurrence and convolutions by using only attention mechanisms\u2014specifically self\u2011attention\u2014to compute representations of both the input and output, eliminating any sequence\u2011alig...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_008",
+      "question": "What is the model dimension (d_model) used in the base Transformer?",
+      "category": "architecture_hyperparameters",
+      "difficulty": "medium",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 1.0,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 15.83149003982544,
+      "response_preview": "**Answer:** The base Transformer uses a model dimension (\u202fd\u2098\u2092\ud835\udcb9\u2091\u2097\u202f) of **512**\u202f[1].\n\n**Supporting details**\n- In Table\u202f3, the row labeled \u201cbase\u201d lists `dmodel = 512` among its hyper\u2011parameters\u202f[1].\n- T...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_009",
+      "question": "What are the key components of the Transformer encoder layer?",
+      "category": "architecture_components",
+      "difficulty": "medium",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.5,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 12.550869941711426,
+      "response_preview": "**Direct Answer:**  \nThe Transformer encoder layer consists of a multi\u2011head self\u2011attention sub\u2011layer and a position\u2011wise fully\u2011connected feed\u2011forward sub\u2011layer, each wrapped with residual connections,...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_010",
+      "question": "How does the decoder differ from the encoder in the Transformer?",
+      "category": "architecture_comparison",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.5,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.943636417388916,
+      "response_preview": "**Direct Answer:**  \nThe decoder differs from the encoder by incorporating an additional \u201cencoder\u2011decoder attention\u201d sub\u2011layer that attends to the encoder\u2019s output, whereas the encoder contains only s...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_011",
+      "question": "What is hardware security?",
+      "category": "security_basics",
+      "difficulty": "easy",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.75,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.716897010803223,
+      "response_preview": "**Direct Answer:**  \nHardware security is the discipline that protects computing systems from attacks that exploit physical and architectural characteristics of hardware, such as side\u2011channel leakage,...",
+      "issues": [],
+      "has_inline_citations": false
+    },
+    {
+      "question_id": "kb_012",
+      "question": "What are side-channel attacks?",
+      "category": "attack_types",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": false,
+      "keyword_coverage": 0.2,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 10.167271375656128,
+      "response_preview": "**Direct Answer:**  \nSide\u2011channel attacks exploit indirect information leaked by a system\u2014such as timing, cache behavior, or other microarchitectural states\u2014to infer confidential data, manipulate syst...",
+      "issues": [
+        "Low keyword coverage: 20.0%"
+      ],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_013",
+      "question": "Explain what a fault injection attack is.",
+      "category": "attack_types",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 1.0,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.20050048828125,
+      "response_preview": "**Direct Answer**  \nA fault injection attack deliberately induces hardware errors\u2014such as voltage glitches, clock glitches, laser\u2011induced faults, or electromagnetic disturbances\u2014to corrupt the operati...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_014",
+      "question": "What are common countermeasures against side-channel attacks?",
+      "category": "countermeasures",
+      "difficulty": "hard",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.5,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 10.855288982391357,
+      "response_preview": "**Direct Answer:**  \nCommon countermeasures against side\u2011channel attacks include hardware\u2011level noise and logic techniques, algorithmic masking and re\u2011keying schemes, memory\u2011access obfuscation, and sy...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_015",
+      "question": "What is power analysis in the context of hardware security?",
+      "category": "attack_methods",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.6,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.216835021972656,
+      "response_preview": "Power analysis is a side\u2011channel attack technique that exploits variations in a device\u2019s power consumption to infer secret information, such as cryptographic keys, by correlating measured power traces...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_016",
+      "question": "What are Physically Unclonable Functions (PUFs)?",
+      "category": "security_primitives",
+      "difficulty": "hard",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.75,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 12.71787405014038,
+      "response_preview": "Physically Unclonable Functions (PUFs) are hardware\u2011based security primitives that exploit microscopic manufacturing variations in semiconductor devices to produce unique, device\u2011specific \u201cfingerprint...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_017",
+      "question": "What is a Trojan horse in hardware?",
+      "category": "attack_types",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.5,
+      "has_sources": true,
+      "confidence": 0.5,
+      "response_time": 13.127167463302612,
+      "response_preview": "\u26a0\ufe0f The knowledge base didn't have sufficient information (Confidence: 50.0%).\n\nSearching the web for current information...\n\nA Trojan virus\u2014also called a Trojan horse\u2014is malicious software that masque...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_018",
+      "question": "How does timing analysis work as a side-channel attack?",
+      "category": "attack_methods",
+      "difficulty": "hard",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 1.0,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 10.570924758911133,
+      "response_preview": "**Direct Answer**  \nTiming analysis as a side\u2011channel attack exploits measurable differences in execution time\u2014especially cache access latencies\u2014to infer a victim\u2019s secret data, such as cryptographic ...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_019",
+      "question": "What is the difference between simple power analysis (SPA) and differential power analysis (DPA)?",
+      "category": "attack_comparison",
+      "difficulty": "hard",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 1.0,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.189740419387817,
+      "response_preview": "**Simple Power Analysis (SPA) directly inspects individual power\u2011consumption traces to identify specific operations (e.g., multiplication, addition) and infer key bits, working best when distinct powe...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_020",
+      "question": "What role does electromagnetic emanation play in hardware security?",
+      "category": "side_channel_attacks",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": true,
+      "keyword_coverage": 0.6,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 10.988701581954956,
+      "response_preview": "Electromagnetic emanations serve as a powerful side\u2011channel source that attackers can exploit to recover secret data, while hardware designers must implement specific mitigations to limit such leakage...",
+      "issues": [],
+      "has_inline_citations": false
+    },
+    {
+      "question_id": "kb_021",
+      "question": "What are the advantages of the Transformer over RNN and LSTM models?",
+      "category": "model_comparison",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": false,
+      "keyword_coverage": 0.0,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.61152458190918,
+      "response_preview": "The Transformer outperforms RNN\u2011 and LSTM\u2011based models by eliminating recurrence, which makes it faster to train, more parallelizable, and yields higher translation quality\u202f[1][2][3].\n\n**Supporting de...",
+      "issues": [
+        "Low keyword coverage: 0.0%"
+      ],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_022",
+      "question": "What is the computational complexity of self-attention?",
+      "category": "complexity_analysis",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.6666666666666666,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.419725179672241,
+      "response_preview": "**Direct Answer:**  \nThe computational complexity per layer of a self\u2011attention mechanism is\u202f\\(O(n^{2}\\,\u00b7\\,d)\\)\u202fwhere\u202f\\(n\\)\u202fis the sequence length and\u202f\\(d\\)\u202fis the representation dimension\u202f[1].\n\n**Sup...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_023",
+      "question": "How are hardware security vulnerabilities typically classified?",
+      "category": "classification",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": false,
+      "keyword_coverage": 0.4,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 11.315585136413574,
+      "response_preview": "Hardware security vulnerabilities are typically classified by the type of attack vector they exploit, such as:\n\n- **Side\u2011channel attacks** \u2013 e.g., cache side\u2011channel attacks, Differential Power Analys...",
+      "issues": [
+        "Low keyword coverage: 40.0%"
+      ],
+      "has_inline_citations": false
+    },
+    {
+      "question_id": "kb_024",
+      "question": "What is the scaled dot-product attention formula?",
+      "category": "mathematical_formulation",
+      "difficulty": "hard",
+      "source_pdf": "Attention is all you need",
+      "success": true,
+      "keyword_coverage": 0.5,
+      "has_sources": true,
+      "confidence": 0.95,
+      "response_time": 9.68717646598816,
+      "response_preview": "**Direct Answer:**  \nThe scaled dot\u2011product attention is computed as  \n\n\\[\n\\text{Attention}(Q, K, V) = \\text{softmax}\\!\\left(\\frac{QK^{\\top}}{\\sqrt{d_k}}\\right) V\n\\]  \n\nwhere \\(Q\\), \\(K\\), and \\(V\\) a...",
+      "issues": [],
+      "has_inline_citations": true
+    },
+    {
+      "question_id": "kb_025",
+      "question": "What are the security implications of hardware reverse engineering?",
+      "category": "security_threats",
+      "difficulty": "medium",
+      "source_pdf": "Modern Hardware Security",
+      "success": false,
+      "keyword_coverage": 0.25,
+      "has_sources": true,
+      "confidence": 0.5,
+      "response_time": 14.025367021560669,
+      "response_preview": "\u26a0\ufe0f The knowledge base didn't have sufficient information (Confidence: 50.0%).\n\nSearching the web for current information...\n\nReverse engineering is a paradoxical force in modern technology: it fuels c...",
+      "issues": [
+        "Low keyword coverage: 25.0%"
+      ],
+      "has_inline_citations": true
+    }
+  ],
+  "summary": {
+    "total_success": 21,
+    "total_failed": 4,
+    "by_difficulty": {
+      "easy": {
+        "total": 3,
+        "success": 3
+      },
+      "medium": {
+        "total": 12,
+        "success": 9
+      },
+      "hard": {
+        "total": 10,
+        "success": 9
+      }
+    },
+    "by_source": {
+      "Attention is all you need": {
+        "total": 13,
+        "success": 12
+      },
+      "Modern Hardware Security": {
+        "total": 12,
+        "success": 9
+      }
+    },
+    "by_category": {
+      "architecture_basics": {
+        "total": 1,
+        "success": 1
+      },
+      "attention_mechanism": {
+        "total": 2,
+        "success": 2
+      },
+      "architecture_details": {
+        "total": 2,
+        "success": 2
+      },
+      "architecture_components": {
+        "total": 2,
+        "success": 2
+      },
+      "architecture_innovation": {
+        "total": 1,
+        "success": 1
+      },
+      "architecture_hyperparameters": {
+        "total": 1,
+        "success": 1
+      },
+      "architecture_comparison": {
+        "total": 1,
+        "success": 1
+      },
+      "security_basics": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_types": {
+        "total": 3,
+        "success": 2
+      },
+      "countermeasures": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_methods": {
+        "total": 2,
+        "success": 2
+      },
+      "security_primitives": {
+        "total": 1,
+        "success": 1
+      },
+      "attack_comparison": {
+        "total": 1,
+        "success": 1
+      },
+      "side_channel_attacks": {
+        "total": 1,
+        "success": 1
+      },
+      "model_comparison": {
+        "total": 1,
+        "success": 0
+      },
+      "complexity_analysis": {
+        "total": 1,
+        "success": 1
+      },
+      "classification": {
+        "total": 1,
+        "success": 0
+      },
+      "mathematical_formulation": {
+        "total": 1,
+        "success": 1
+      },
+      "security_threats": {
+        "total": 1,
+        "success": 0
+      }
+    },
+    "avg_keyword_coverage": 0.6173333333333333,
+    "avg_confidence": 0.9139999999999999,
+    "with_citations": 21,
+    "with_sources": 25,
+    "success_rate": 0.84,
+    "total_time": 261.7036437988281,
+    "avg_time_per_question": 10.468145751953125
+  }
+}

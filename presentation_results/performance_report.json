@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-10-15 23:45:45",
+  "test_type": "Performance Testing",
+  "response_time": {
+    "num_iterations": 10,
+    "successful_iterations": 10,
+    "mean_time": 10.459955930709839,
+    "median_time": 11.921878337860107,
+    "std_dev": 3.5561865258055096,
+    "min_time": 0.7485668659210205,
+    "max_time": 12.496850967407227,
+    "all_times": [
+      0.7485668659210205,
+      8.993647336959839,
+      11.929017782211304,
+      12.02717924118042,
+      12.189371109008789,
+      12.496850967407227,
+      11.11768651008606,
+      12.088351011276245,
+      11.094149589538574,
+      11.914738893508911
+    ]
+  },
+  "concurrent_load": {
+    "num_concurrent": 5,
+    "total_time": 20.291053295135498,
+    "successful_requests": 1,
+    "failed_requests": 3,
+    "throughput": 0.04928280387690551,
+    "detailed_results": [
+      {
+        "success": false,
+        "query_idx": 0,
+        "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01jzzfe2k7f3hr56v32wrx7hkn` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6846, Requested 1330. Please try again in 1.319999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+      },
+      {
+        "success": true,
+        "query_idx": 1,
+        "response_time": 11.937937498092651,
+        "response_length": 1959
+      },
+      {
+        "success": false,
+        "query_idx": 2,
+        "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01jzzfe2k7f3hr56v32wrx7hkn` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6925, Requested 1319. Please try again in 1.83s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+      },
+      {
+        "success": false,
+        "query_idx": 3,
+        "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01jzzfe2k7f3hr56v32wrx7hkn` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6869, Requested 1336. Please try again in 1.537499999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+      }
+    ],
+    "average_response_time": 11.937937498092651,
+    "max_response_time": 11.937937498092651,
+    "min_response_time": 11.937937498092651
+  },
+  "sustained_load": {
+    "duration": 30,
+    "target_rps": 2,
+    "total_requests": 4,
+    "successful_requests": 4,
+    "failed_requests": 0,
+    "response_times": [
+      3.7251133918762207,
+      10.982476472854614,
+      11.259499073028564,
+      11.926644802093506
+    ],
+    "actual_duration": 40.10225486755371,
+    "actual_rps": 0.0997450146683985,
+    "mean_response_time": 9.473433434963226,
+    "median_response_time": 11.12098777294159,
+    "p95_response_time": 11.926644802093506,
+    "p99_response_time": 11.926644802093506
+  }
+}

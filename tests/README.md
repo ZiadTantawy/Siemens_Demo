@@ -1,57 +1,111 @@
-# Comprehensive Testing Methodology
+# System Testing# Comprehensive Testing Methodology
 
-## Overview
 
-This testing framework provides a comprehensive methodology to evaluate the Siemens RAG Chatbot system's accuracy in both internal RAG retrieval and web-fallback scenarios.
 
-## Test Structure
+## Overview## Overview
 
-```
-tests/
-├── __init__.py                    # Package initialization
+
+
+Single comprehensive test suite that evaluates the entire RAG chatbot system using 30 curated questions.This testing framework provides a comprehensive methodology to evaluate the Siemens RAG Chatbot system's accuracy in both internal RAG retrieval and web-fallback scenarios.
+
+
+
+## Quick Start## Test Structure
+
+
+
+```bash```
+
+# Run all 30 teststests/
+
+python tests/test_system.py├── __init__.py                    # Package initialization
+
 ├── test_config.py                 # Test cases and ground truth dataset
-├── metrics.py                     # Evaluation metrics
-├── test_accuracy.py               # RAG accuracy testing
+
+# Run limited questions  ├── metrics.py                     # Evaluation metrics
+
+python tests/test_system.py --questions 10├── test_accuracy.py               # RAG accuracy testing
+
 ├── test_web_fallback.py           # Web search fallback testing
-├── test_performance.py            # Performance and stress testing
-├── run_comprehensive_tests.py     # Main test runner
-└── README.md                      # This file
+
+# Custom output path├── test_performance.py            # Performance and stress testing
+
+python tests/test_system.py --output my_results/report.json├── run_comprehensive_tests.py     # Main test runner
+
+```└── README.md                      # This file
+
 ```
+
+## Test Dataset
 
 ## Test Categories
 
-### 1. Accuracy Testing (`test_accuracy.py`)
+**30 curated questions** covering:
+
+- **Transformer Architecture** (16 questions): attention, encoding, architecture details### 1. Accuracy Testing (`test_accuracy.py`)
+
+- **Hardware Security** (14 questions): attacks, defenses, cryptography
 
 Tests the accuracy of RAG retrieval and response generation.
 
+## Metrics Evaluated
+
 **Metrics Evaluated:**
-- **Retrieval Accuracy**: Measures how well the system retrieves relevant documents
-  - Success rate
-  - Relevance score (keyword coverage)
-  - Above-threshold rate
+
+1. **Accuracy**: Success rate, keyword coverage- **Retrieval Accuracy**: Measures how well the system retrieves relevant documents
+
+2. **Quality**: Confidence scores, citation rate    - Success rate
+
+3. **Performance**: Response time, latency  - Relevance score (keyword coverage)
+
+4. **Grading**: A+ (95%) to D (<70%)  - Above-threshold rate
+
   - Retrieval time
 
-- **Response Accuracy**: Measures quality of generated responses
-  - Success rate
-  - Keyword coverage
-  - Hallucination detection
-  - Response time
+## Report Output
 
-**Test Cases:**
+- **Response Accuracy**: Measures quality of generated responses
+
+JSON report includes:  - Success rate
+
+- Overall success rate and grade  - Keyword coverage
+
+- Detailed metrics by category and difficulty  - Hallucination detection
+
+- Failed questions with analysis  - Response time
+
+- Performance benchmarks
+
+- Recommendations**Test Cases:**
+
 - Internal factual questions (from documents)
-- Internal conceptual questions (complex understanding)
+
+## Prerequisites- Internal conceptual questions (complex understanding)
+
 - Edge cases (empty queries, very long queries, etc.)
 
-### 2. Web Fallback Testing (`test_web_fallback.py`)
+Backend must be running:
 
-Tests the web search fallback functionality when internal RAG doesn't have answers.
+```bash### 2. Web Fallback Testing (`test_web_fallback.py`)
 
-**Metrics Evaluated:**
+uvicorn backend.main:app --reload
+
+```Tests the web search fallback functionality when internal RAG doesn't have answers.
+
+
+
+## Success Criteria**Metrics Evaluated:**
+
 - Web search success rate
-- Keyword coverage in web results
-- Source attribution rate
-- Response quality score
-- Fallback decision accuracy (routing between internal/external)
+
+✅ Success Rate > 80%  - Keyword coverage in web results
+
+✅ Keyword Coverage > 70%  - Source attribution rate
+
+✅ Citation Rate > 90%  - Response quality score
+
+✅ Response Time < 10s- Fallback decision accuracy (routing between internal/external)
+
 
 **Test Cases:**
 - Current events queries (requires recent information)
