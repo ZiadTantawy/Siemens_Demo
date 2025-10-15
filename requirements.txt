@@ -32,3 +32,11 @@ sentence-transformers
 tqdm
 unstructured[pdf]
 pymupdf
+
+# Testing and Evaluation
+pytest-asyncio
+pytest-cov
+sentence-transformers  # For advanced semantic similarity
+scikit-learn  # For additional metrics
+matplotlib  # For visualization (optional)
+seaborn  # For visualization (optional)
