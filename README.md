@@ -22,21 +22,6 @@ A production-ready Retrieval-Augmented Generation (RAG) chatbot system with inte
 
 ---
 
-## Table of Contents
-
-- [Architecture](#-architecture)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Running the Application](#-running-the-application)
-- [Document Ingestion](#-document-ingestion)
-- [Testing](#-testing)
-- [API Documentation](#-api-documentation)
-- [Project Structure](#-project-structure)
-- [Troubleshooting](#-troubleshooting)
-
----
-
 ## Architecture
 
 ```
@@ -83,7 +68,7 @@ Vector Store    Chat History
 
 ### API Keys Required
 1. **Groq API Key**: Get from [Groq Console](https://console.groq.com/)
-2. **Tavily API Key** (Optional): For web search - [Tavily](https://tavily.com/)
+2. **Serper**: For web search - [Tavily](https://tavily.com/)
 
 ---
 
@@ -160,7 +145,7 @@ QDRANT_COLLECTION=pdf_docs
 # API Keys (REQUIRED)
 API_KEY=your_groq_api_key_here
 GROQ_API_KEY=your_groq_api_key_here
-TAVILY_API_KEY=your_tavily_api_key_here  # Optional for web search
+SERPER_API_KEY=your_tavily_api_key_here  # Optional for web search
 
 # Model Configuration
 CHAT_MODEL=llama-3.3-70b-versatile
@@ -177,7 +162,7 @@ BATCH_SIZE=64
 ### Important Configuration Notes
 
 1. **API_KEY and GROQ_API_KEY**: Both should be set to your Groq API key
-2. **TAVILY_API_KEY**: Required only if you want web search fallback functionality
+2. **SERPER_API_KEY**: Required only if you want web search fallback functionality
 3. **CHUNK_SIZE**: Optimal for most documents (800 tokens)
 4. **BATCH_SIZE**: Increase for faster ingestion on powerful machines
 
