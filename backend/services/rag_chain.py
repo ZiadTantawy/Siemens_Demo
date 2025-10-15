@@ -1,10 +1,6 @@
-"""
-RAG Chain Service - Handles document retrieval and conversational AI.
-Integrates vector store, memory, and LLM for context-aware responses.
-"""
 import os
 from pymongo import MongoClient
-from langchain_community.chat_message_histories import MongoDBChatMessageHistory
+from langchain_mongodb.chat_message_histories import MongoDBChatMessageHistory
 from langchain.memory import ConversationBufferMemory
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough, RunnableMap

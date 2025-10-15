@@ -3,6 +3,7 @@ Configuration settings for Internal RAG Chatbot API
 """
 from pydantic_settings import BaseSettings
 from typing import Optional
+import os
 
 class Settings(BaseSettings):
     # MongoDB Configuration
@@ -28,6 +29,7 @@ class Settings(BaseSettings):
     # API Keys
     API_KEY: Optional[str] = None
     GROQ_API_KEY: Optional[str] = None
+    QDRANT_API_KEY: Optional[str] = None
     
     # Model Configuration
     EMBED_MODEL: str = "BAAI/bge-base-en-v1.5"
@@ -36,7 +38,7 @@ class Settings(BaseSettings):
     
     # RAG Ingestion Configuration
     COLLECTION_NAME: str = "pdf_docs"
-    SOURCE_DIR: str = "./pdfs"
+    SOURCE_DIR: str = "./backend/pdfs"
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 150
     BATCH_SIZE: int = 64
@@ -54,3 +56,13 @@ class Settings(BaseSettings):
         extra = "allow"  # Allow extra fields from .env
 
 settings = Settings()
+
+# Export commonly used variables for easy import
+MONGODB_URL = settings.mongodb_url
+QDRANT_URL = settings.qdrant_url
+QDRANT_API_KEY = settings.QDRANT_API_KEY
+COLLECTION_NAME = settings.COLLECTION_NAME
+EMBEDDING_MODEL = settings.EMBEDDING_MODEL
+SOURCE_DIR = settings.SOURCE_DIR
+CHUNK_SIZE = settings.CHUNK_SIZE
+CHUNK_OVERLAP = settings.CHUNK_OVERLAP

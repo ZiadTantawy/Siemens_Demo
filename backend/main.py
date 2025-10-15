@@ -3,8 +3,14 @@ RAG Chatbot API - Main FastAPI application.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.api.router import api_router
-from backend.core.config import settings
+
+# Support running from both project root and backend directory
+try:
+    from backend.api.router import api_router
+    from backend.core.config import settings
+except ModuleNotFoundError:
+    from api.router import api_router
+    from core.config import settings
 
 
 app = FastAPI(

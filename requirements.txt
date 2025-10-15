@@ -17,10 +17,16 @@ langchain-openai
 langchain-qdrant
 langchain-huggingface
 langchain-groq
+langchain-mongodb
+langsmith
+
+# LangGraph for agent orchestration
+langgraph
 
 # Vector Database and Embeddings
 qdrant-client
 pymongo
+sentence-transformers
 
 # RAG Ingestion Dependencies
 tqdm
