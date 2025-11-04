@@ -40,3 +40,4 @@ export const getFileTypeLabel = (extension: string): string => {
   return labels[extension] || 'Unknown File';
 };
 
+

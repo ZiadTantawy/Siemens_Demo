@@ -45,3 +45,4 @@ export function suggestCollections(query: string, collections: Collection[]): Co
     .slice(0, 3);
 }
 
+

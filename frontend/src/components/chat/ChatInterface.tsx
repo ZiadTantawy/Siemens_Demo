@@ -44,14 +44,14 @@ const ChatInterface: React.FC = () => {
 
   const LoadingIndicator = () => (
     <div className="flex items-start gap-4">
-      <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0 bg-primary-gradient shadow-neon">
+      <div className="w-10 h-10 rounded-full flex items-center justify-center text-black font-bold flex-shrink-0 bg-white border-2 border-white shadow-dank">
         <Bot className="w-5 h-5" />
       </div>
-      <div className="backdrop-blur-glass rounded-modern px-6 py-4 max-w-[80%] animate-fade-in bg-card border border-border/50 shadow-glass">
+      <div className="bg-white/10 border-2 border-white/20 rounded-lg px-6 py-4 max-w-[80%] animate-fade-in backdrop-blur-sm">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-primary animate-bounce-dot-1"></div>
-          <div className="w-2 h-2 rounded-full bg-secondary animate-bounce-dot-2"></div>
-          <div className="w-2 h-2 rounded-full bg-accent animate-bounce-dot-3"></div>
+          <div className="w-2 h-2 rounded-full bg-white animate-bounce-dot-1"></div>
+          <div className="w-2 h-2 rounded-full bg-white animate-bounce-dot-2"></div>
+          <div className="w-2 h-2 rounded-full bg-white animate-bounce-dot-3"></div>
         </div>
       </div>
     </div>
@@ -60,29 +60,32 @@ const ChatInterface: React.FC = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background */}
-      <div className="fixed inset-0 bg-mesh-gradient opacity-50 pointer-events-none"></div>
-      <div className="absolute w-24 h-24 rounded-full blur-[120px] opacity-60 bg-primary animate-float top-20 left-20"></div>
-      <div className="absolute w-24 h-24 rounded-full blur-[120px] opacity-60 bg-secondary animate-float-delayed bottom-20 right-20"></div>
+      <div className="fixed inset-0 bg-black pointer-events-none"></div>
 
       {/* Header */}
-      <header className="sticky top-0 backdrop-blur-glass bg-card border-b border-border/50 z-10">
-        <div className="max-w-5xl mx-auto px-8 py-6">
+      <header className="sticky top-0 bg-black border-b-2 border-white/10 z-10">
+        <div className="max-w-6xl mx-auto px-8 py-6">
           <div className="flex items-center justify-between gap-6">
-            <div className="flex items-center gap-5">
-              <div className="flex items-center justify-center w-14 h-14 bg-primary-gradient rounded-modern shadow-neon">
-                <Sparkles className="w-9 h-9 text-white animate-glow-pulse" />
+            <div className="flex items-center gap-6">
+              <div className="flex items-center justify-center w-16 h-16 bg-white border-2 border-white rounded-lg shadow-dank">
+                <Sparkles className="w-10 h-10 text-black" />
               </div>
               <div>
-                <h1 className="text-4xl font-bold bg-primary-gradient bg-clip-text text-transparent">
-                  RAG Knowledge Base Chat
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xs uppercase tracking-widest text-white/60 font-bold">EST. 2022</span>
+                </div>
+                <h1 className="text-5xl font-black text-white tracking-tight leading-none">
+                  Dank n'
+                  <br />
+                  <span className="relative">Drip.</span>
                 </h1>
-                <p className="text-foreground/70 text-base mt-1">Powered by advanced AI technology</p>
+                <p className="text-white/60 text-sm mt-2 font-medium uppercase tracking-wider">Knowledge Base AI</p>
               </div>
             </div>
             <button
               onClick={toggleSidebar}
-              className={`flex items-center gap-3 px-6 py-3 bg-background/50 border-2 border-border/50 rounded-modern hover:border-primary/50 hover:bg-primary/10 transition-all text-base font-medium ${
-                sidebarOpen ? 'bg-primary/20 border-primary/30' : ''
+              className={`flex items-center gap-3 px-6 py-3.5 bg-white text-black border-2 border-white rounded-lg hover:bg-white/90 transition-all text-sm font-bold uppercase tracking-wider ${
+                sidebarOpen ? 'bg-white/90' : ''
               }`}
             >
               <Database className="w-5 h-5" />
@@ -93,7 +96,7 @@ const ChatInterface: React.FC = () => {
       </header>
 
       {/* Chat Area */}
-      <main className="flex-1 flex flex-col max-w-5xl mx-auto px-8 py-10">
+      <main className="flex-1 flex flex-col max-w-6xl mx-auto px-8 py-10">
         <div className="flex-1 space-y-6 overflow-y-auto scrollbar-hide">
           {messages.map((message: { id: string; role: 'user' | 'assistant'; content: string; sources?: any[]; confidence?: number }) => (
             <ChatMessage
@@ -110,34 +113,34 @@ const ChatInterface: React.FC = () => {
 
         {/* Context Display */}
         {attachedContext.length > 0 && (
-          <div className="mb-6">
-            <p className="text-base font-medium text-foreground/70 mb-3">Context for this chat:</p>
+          <div className="mb-6 pt-6 border-t border-white/10">
+            <p className="text-sm font-bold text-white/80 mb-4 uppercase tracking-wider">Attached Context:</p>
             <ContextPills contexts={attachedContext} />
           </div>
         )}
 
         {/* Input Area */}
-        <div className="backdrop-blur-glass bg-card border-t-2 border-border/50 p-6 mt-8 rounded-t-modern">
+        <div className="bg-black border-t-2 border-white/10 p-6 mt-8">
           <div className="flex gap-4 items-end">
             <button
               onClick={() => setShowAttachmentModal(true)}
-              className="p-3 hover:bg-background/50 rounded-modern transition-colors flex-shrink-0 border-2 border-border/50 hover:border-primary/50"
+              className="p-3 bg-white text-black hover:bg-white/90 rounded-lg transition-all flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
               title="Attach context"
             >
-              <Paperclip className="w-6 h-6 text-foreground/70" />
+              <Paperclip className="w-6 h-6 text-black" />
             </button>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message here... (Enter to send, Shift+Enter for new line)"
-              className="w-full bg-background/50 backdrop-blur-sm border-2 border-border/50 rounded-modern px-5 py-4 text-base text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 resize-none min-h-[100px]"
+              className="w-full bg-white/5 backdrop-blur-sm border-2 border-white/20 rounded-lg px-5 py-4 text-base text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 resize-none min-h-[100px]"
               disabled={isLoading}
             />
             <button
               onClick={handleSendMessage}
               disabled={!input.trim() || isLoading}
-              className="bg-primary-gradient text-white px-8 py-4 rounded-modern text-base font-semibold transition-all duration-300 hover:shadow-neon hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none flex items-center gap-2 flex-shrink-0"
+              className="bg-white text-black px-8 py-4 rounded-lg text-sm font-black uppercase tracking-wider transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2 flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
             >
               <Send className="w-5 h-5" />
               Send

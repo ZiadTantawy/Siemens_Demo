@@ -36,19 +36,19 @@ const ContextPills: React.FC<ContextPillsProps> = ({ contexts, onRemove }) => {
 
   const getColor = (type: AttachedContext['type']) => {
     const colors = {
-      order: 'bg-blue-500/20 text-blue-500 border-blue-500/30',
-      product: 'bg-purple-500/20 text-purple-500 border-purple-500/30',
-      report: 'bg-green-500/20 text-green-500 border-green-500/30',
-      document: 'bg-orange-500/20 text-orange-500 border-orange-500/30',
-      collection: 'bg-primary/20 text-primary border-primary/30'
+      order: 'bg-white/15 text-white border-white/40',
+      product: 'bg-white/15 text-white border-white/40',
+      report: 'bg-white/15 text-white border-white/40',
+      document: 'bg-white/15 text-white border-white/40',
+      collection: 'bg-white/15 text-white border-white/40'
     };
-    return colors[type] || 'bg-gray-500/20 text-gray-500 border-gray-500/30';
+    return colors[type] || 'bg-white/15 text-white border-white/40';
   };
 
   if (contexts.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap gap-3 mb-4">
+    <div className="flex flex-wrap gap-3">
       {contexts.map((context) => {
         const Icon = getIcon(context.type);
         const colorClass = getColor(context.type);
@@ -57,19 +57,19 @@ const ContextPills: React.FC<ContextPillsProps> = ({ contexts, onRemove }) => {
           <div
             key={context.id}
             className={`
-              flex items-center gap-3 px-4 py-2.5 rounded-lg border-2
+              flex items-center gap-3 px-5 py-3 rounded-lg border-2
               ${colorClass}
-              backdrop-blur-glass shadow-sm hover:shadow-md transition-all
+              backdrop-blur-sm shadow-dank hover:shadow-lg hover:bg-white/20 transition-all
             `}
           >
-            <Icon className="w-4 h-4 flex-shrink-0" />
-            <span className="text-base font-medium truncate max-w-[250px]">{context.title}</span>
+            <Icon className="w-5 h-5 flex-shrink-0 text-white" />
+            <span className="text-base font-semibold truncate max-w-[250px] text-white">{context.title}</span>
             <button
               onClick={() => handleRemove(context.id)}
-              className="p-1 hover:bg-background/20 rounded transition-colors flex-shrink-0"
+              className="p-1 hover:bg-white/30 rounded transition-colors flex-shrink-0 ml-1"
               aria-label={`Remove ${context.title}`}
             >
-              <X className="w-4 h-4" />
+              <X className="w-4 h-4 text-white" />
             </button>
           </div>
         );
