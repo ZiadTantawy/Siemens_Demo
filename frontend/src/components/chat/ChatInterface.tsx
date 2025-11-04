@@ -35,7 +35,7 @@ const ChatInterface: React.FC = () => {
     await sendMessage(content);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -124,7 +124,7 @@ const ChatInterface: React.FC = () => {
           <div className="flex gap-4 items-end">
             <button
               onClick={() => setShowAttachmentModal(true)}
-              className="p-3 bg-white text-black hover:bg-white/90 rounded-lg transition-all flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
+              className="p-3 z-50 bg-white text-black hover:bg-white/90 rounded-lg transition-all flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
               title="Attach context"
             >
               <Paperclip className="w-6 h-6 text-black" />
@@ -132,7 +132,7 @@ const ChatInterface: React.FC = () => {
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyDown}
               placeholder="Type your message here... (Enter to send, Shift+Enter for new line)"
               className="w-full bg-white/5 backdrop-blur-sm border-2 border-white/20 rounded-lg px-5 py-4 text-base text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 resize-none min-h-[100px]"
               disabled={isLoading}
@@ -140,7 +140,7 @@ const ChatInterface: React.FC = () => {
             <button
               onClick={handleSendMessage}
               disabled={!input.trim() || isLoading}
-              className="bg-white text-black px-8 py-4 rounded-lg text-sm font-black uppercase tracking-wider transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2 flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
+              className="bg-white z-50 text-black px-8 py-4 rounded-lg text-sm font-black uppercase tracking-wider transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2 flex-shrink-0 border-2 border-white shadow-dank hover:shadow-lg"
             >
               <Send className="w-5 h-5" />
               Send
