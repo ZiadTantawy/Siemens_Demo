@@ -3,7 +3,7 @@
  */
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Send, Bot, Paperclip, Database } from 'lucide-react';
+import { Sparkles, Send, Bot, Paperclip, Database, Globe } from 'lucide-react';
 import ChatMessage from '../ChatMessage';
 import ContextPills from './ContextPills';
 import ContextAttachmentModal from './ContextAttachmentModal';
@@ -17,6 +17,7 @@ const ChatInterface: React.FC = () => {
   const { sidebarOpen, toggleSidebar } = useUI();
   const [input, setInput] = useState('');
   const [showAttachmentModal, setShowAttachmentModal] = useState(false);
+  const [browsingEnabled, setBrowsingEnabled] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -129,6 +130,17 @@ const ChatInterface: React.FC = () => {
             >
               <Paperclip className="w-6 h-6 text-black" />
             </button>
+            <button
+              onClick={() => setBrowsingEnabled(!browsingEnabled)}
+              className={`p-3 z-50 rounded-lg transition-all flex-shrink-0 border-2 shadow-dank hover:shadow-lg ${
+                browsingEnabled
+                  ? 'bg-primary text-white border-primary hover:bg-primary/90'
+                  : 'bg-white text-black border-white hover:bg-white/90'
+              }`}
+              title={browsingEnabled ? 'Disable browsing' : 'Enable browsing'}
+            >
+              <Globe className="w-6 h-6" />
+            </button>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -146,6 +158,12 @@ const ChatInterface: React.FC = () => {
               Send
             </button>
           </div>
+          {browsingEnabled && (
+            <div className="mt-3 flex items-center gap-2 text-sm text-white/70">
+              <Globe className="w-4 h-4" />
+              <span>Browsing enabled - AI can search the web for additional information</span>
+            </div>
+          )}
         </div>
       </main>
 

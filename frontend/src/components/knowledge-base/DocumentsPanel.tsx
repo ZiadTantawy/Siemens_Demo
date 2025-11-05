@@ -3,7 +3,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { FileText, Folder, Upload, Trash2, CheckCircle, AlertCircle, Loader, Search, Plus, X } from 'lucide-react';
+import { FileText, Folder, Upload, Trash2, CheckCircle, AlertCircle, Loader, Search, Plus, X, Sparkles } from 'lucide-react';
 import { apiCall, API_CONFIG } from '../../config/api';
 import { FileUpload } from '../shared/FileUpload';
 import { formatFileSize } from '../../utils/fileUtils';
@@ -94,6 +94,90 @@ const DocumentsPanel: React.FC = () => {
     }
   };
 
+  const handleAddDummyDocuments = async () => {
+    const dummyDocuments = [
+      {
+        name: 'Sample_Product_Guide.pdf',
+        content: `Product Guide
+
+This is a sample product guide document. It contains information about our products and services.
+
+Section 1: Overview
+Our products are designed with quality and customer satisfaction in mind.
+
+Section 2: Features
+- Feature 1: High quality materials
+- Feature 2: Customer support
+- Feature 3: Easy to use
+
+Section 3: Support
+For questions, please contact our support team.`
+      },
+      {
+        name: 'Company_Policy_Document.txt',
+        content: `Company Policy Document
+
+This document outlines our company policies and procedures.
+
+1. Code of Conduct
+All employees must follow our code of conduct.
+
+2. Privacy Policy
+We respect your privacy and handle data securely.
+
+3. Terms of Service
+By using our services, you agree to our terms.`
+      },
+      {
+        name: 'Technical_Specifications.pdf',
+        content: `Technical Specifications
+
+This document contains technical specifications for our products.
+
+Product Specifications:
+- Dimensions: 10x10x5 cm
+- Weight: 500g
+- Material: Premium quality
+- Warranty: 1 year
+
+Installation Instructions:
+1. Unpack the product
+2. Follow the setup guide
+3. Test functionality
+4. Contact support if needed`
+      }
+    ];
+
+    for (const doc of dummyDocuments) {
+      try {
+        // Create a Blob with the content
+        const blob = new Blob([doc.content], { type: 'text/plain' });
+        const file = new File([blob], doc.name, { type: doc.name.endsWith('.pdf') ? 'application/pdf' : 'text/plain' });
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch(
+          `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.DOCUMENTS_UPLOAD}?ingest_now=true`,
+          {
+            method: 'POST',
+            body: formData,
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+
+        showToast(`${doc.name} uploaded successfully`, 'success');
+      } catch (error) {
+        showToast(`Failed to upload ${doc.name}`, 'error');
+      }
+    }
+
+    await fetchDocuments();
+  };
+
   const filteredDocuments = documents.filter(doc => {
     const matchesSearch = !searchQuery || doc.filename.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFolder = !selectedFolder || doc.folderId === selectedFolder;
@@ -112,13 +196,23 @@ const DocumentsPanel: React.FC = () => {
             <span className="font-semibold text-foreground">{documents.length}</span> total documents
           </p>
         </div>
-        <button
-          onClick={() => setShowUpload(true)}
-          className="flex items-center gap-3 px-6 py-3 bg-primary-gradient text-white rounded-modern text-base font-semibold hover:shadow-neon transition-all"
-        >
-          <Plus className="w-5 h-5" />
-          Upload
-        </button>
+        <div className="flex gap-3">
+          <button
+            onClick={handleAddDummyDocuments}
+            className="flex items-center gap-3 px-6 py-3 bg-background/50 text-foreground border-2 border-border/50 rounded-modern text-base font-semibold hover:bg-background/70 hover:border-primary/30 transition-all"
+            title="Add sample documents for testing"
+          >
+            <Sparkles className="w-5 h-5" />
+            Add Dummy Documents
+          </button>
+          <button
+            onClick={() => setShowUpload(true)}
+            className="flex items-center gap-3 px-6 py-3 bg-primary-gradient text-white rounded-modern text-base font-semibold hover:shadow-neon transition-all"
+          >
+            <Plus className="w-5 h-5" />
+            Upload
+          </button>
+        </div>
       </div>
 
       {/* Search and Filters */}

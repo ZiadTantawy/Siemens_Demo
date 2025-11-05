@@ -13,10 +13,11 @@ interface TeamMember {
   email: string;
   role: 'owner' | 'manager' | 'support' | 'marketing' | 'custom';
   permissions: {
-    orders: 'read' | 'write' | 'none';
-    products: 'read' | 'write' | 'none';
-    reports: 'read' | 'write' | 'none';
-    documents: 'read' | 'write' | 'none';
+    orders: 'access' | 'denied';
+    products: 'access' | 'denied';
+    reports: 'access' | 'denied';
+    collections: 'access' | 'denied';
+    documents: 'access' | 'denied';
     pii: boolean;
     financial: boolean;
   };
@@ -29,10 +30,11 @@ const mockTeamMembers: TeamMember[] = [
     email: 'sarah@example.com',
     role: 'owner',
     permissions: {
-      orders: 'write',
-      products: 'write',
-      reports: 'write',
-      documents: 'write',
+      orders: 'access',
+      products: 'access',
+      reports: 'access',
+      collections: 'access',
+      documents: 'access',
       pii: true,
       financial: true
     }
@@ -43,10 +45,11 @@ const mockTeamMembers: TeamMember[] = [
     email: 'mike@example.com',
     role: 'manager',
     permissions: {
-      orders: 'read',
-      products: 'write',
-      reports: 'write',
-      documents: 'write',
+      orders: 'access',
+      products: 'access',
+      reports: 'access',
+      collections: 'access',
+      documents: 'access',
       pii: false,
       financial: false
     }
@@ -57,10 +60,11 @@ const mockTeamMembers: TeamMember[] = [
     email: 'emma@example.com',
     role: 'support',
     permissions: {
-      orders: 'read',
-      products: 'read',
-      reports: 'none',
-      documents: 'read',
+      orders: 'access',
+      products: 'access',
+      reports: 'denied',
+      collections: 'access',
+      documents: 'access',
       pii: false,
       financial: false
     }
@@ -147,19 +151,43 @@ const TeamPanel: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                 <span className="text-foreground/70">Orders:</span>
-                <span className="font-bold text-foreground capitalize">{member.permissions.orders}</span>
+                <span className={`font-bold capitalize ${
+                  member.permissions.orders === 'access' ? 'text-green-500' : 'text-red-500'
+                }`}>
+                  {member.permissions.orders === 'access' ? 'Access' : 'Denied'}
+                </span>
               </div>
               <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                 <span className="text-foreground/70">Products:</span>
-                <span className="font-bold text-foreground capitalize">{member.permissions.products}</span>
+                <span className={`font-bold capitalize ${
+                  member.permissions.products === 'access' ? 'text-green-500' : 'text-red-500'
+                }`}>
+                  {member.permissions.products === 'access' ? 'Access' : 'Denied'}
+                </span>
               </div>
               <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                 <span className="text-foreground/70">Reports:</span>
-                <span className="font-bold text-foreground capitalize">{member.permissions.reports}</span>
+                <span className={`font-bold capitalize ${
+                  member.permissions.reports === 'access' ? 'text-green-500' : 'text-red-500'
+                }`}>
+                  {member.permissions.reports === 'access' ? 'Access' : 'Denied'}
+                </span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
+                <span className="text-foreground/70">Collections:</span>
+                <span className={`font-bold capitalize ${
+                  member.permissions.collections === 'access' ? 'text-green-500' : 'text-red-500'
+                }`}>
+                  {member.permissions.collections === 'access' ? 'Access' : 'Denied'}
+                </span>
               </div>
               <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                 <span className="text-foreground/70">Documents:</span>
-                <span className="font-bold text-foreground capitalize">{member.permissions.documents}</span>
+                <span className={`font-bold capitalize ${
+                  member.permissions.documents === 'access' ? 'text-green-500' : 'text-red-500'
+                }`}>
+                  {member.permissions.documents === 'access' ? 'Access' : 'Denied'}
+                </span>
               </div>
               <div className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                 <span className="text-foreground/70">PII Access:</span>
@@ -256,46 +284,51 @@ function getDefaultPermissions(role: TeamMember['role']): TeamMember['permission
   switch (role) {
     case 'owner':
       return {
-        orders: 'write',
-        products: 'write',
-        reports: 'write',
-        documents: 'write',
+        orders: 'access',
+        products: 'access',
+        reports: 'access',
+        collections: 'access',
+        documents: 'access',
         pii: true,
         financial: true
       };
     case 'manager':
       return {
-        orders: 'read',
-        products: 'write',
-        reports: 'write',
-        documents: 'write',
+        orders: 'access',
+        products: 'access',
+        reports: 'access',
+        collections: 'access',
+        documents: 'access',
         pii: false,
         financial: false
       };
     case 'support':
       return {
-        orders: 'read',
-        products: 'read',
-        reports: 'none',
-        documents: 'read',
+        orders: 'access',
+        products: 'access',
+        reports: 'denied',
+        collections: 'access',
+        documents: 'access',
         pii: false,
         financial: false
       };
     case 'marketing':
       return {
-        orders: 'read',
-        products: 'write',
-        reports: 'read',
-        documents: 'write',
+        orders: 'access',
+        products: 'access',
+        reports: 'access',
+        collections: 'access',
+        documents: 'access',
         pii: false,
         financial: false
       };
     default:
       return {
-        orders: 'read',
-        products: 'read',
-        reports: 'read',
-        documents: 'read',
+        orders: 'access',
+        products: 'access',
+        reports: 'access',
+        collections: 'access',
+        documents: 'access',
         pii: false,
         financial: false
       };

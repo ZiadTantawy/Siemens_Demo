@@ -3,7 +3,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
-import { BarChart3, TrendingUp, Users, Package, DollarSign } from 'lucide-react';
+import { BarChart3, TrendingUp, Users, Package, DollarSign, CheckSquare } from 'lucide-react';
 import { useKnowledgeBase } from '../../../contexts/KnowledgeBaseContext';
 import { AttachedContext } from '../../../types/chat';
 import { getReportsByCategory } from '../../../services/mock/reportsMock';
@@ -42,6 +42,25 @@ const ReportsTab: React.FC<ReportsTabProps> = ({ selectedItems, onSelectionChang
     }
   };
 
+  const handleSelectAll = () => {
+    const newSelections = filteredReports.map(report => ({
+      id: `report_${report.id}`,
+      type: 'report' as const,
+      sourceId: report.id,
+      title: report.title
+    }));
+    
+    // Merge with existing selections, avoiding duplicates
+    const existingIds = new Set(selectedItems.map(item => item.id));
+    const uniqueNewSelections = newSelections.filter(item => !existingIds.has(item.id));
+    
+    onSelectionChange([...selectedItems, ...uniqueNewSelections]);
+  };
+
+  const allFilteredSelected = filteredReports.length > 0 && filteredReports.every(report => 
+    selectedItems.some(item => item.id === `report_${report.id}`)
+  );
+
   const categoryIcons: Record<ReportCategory, React.ReactNode> = {
     sales: <TrendingUp className="w-4 h-4" />,
     customer: <Users className="w-4 h-4" />,
@@ -51,31 +70,47 @@ const ReportsTab: React.FC<ReportsTabProps> = ({ selectedItems, onSelectionChang
 
   return (
     <div className="space-y-6">
-      <div className="flex gap-3 flex-wrap">
-        <button
-          onClick={() => setSelectedCategory('all')}
-          className={`px-5 py-3 text-base font-medium rounded-modern transition-all ${
-            selectedCategory === 'all'
-              ? 'bg-primary/20 text-primary border-2 border-primary/30 shadow-lg'
-              : 'bg-background/50 text-foreground/70 border-2 border-border/50 hover:border-primary/30 hover:bg-background/70'
-          }`}
-        >
-          All Reports
-        </button>
-        {(['sales', 'customer', 'inventory', 'financial'] as ReportCategory[]).map((category) => (
+      <div className="flex gap-3 flex-wrap items-center">
+        <div className="flex gap-3 flex-wrap flex-1">
           <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-3 text-base font-medium rounded-modern transition-all flex items-center gap-2 ${
-              selectedCategory === category
+            onClick={() => setSelectedCategory('all')}
+            className={`px-5 py-3 text-base font-medium rounded-modern transition-all ${
+              selectedCategory === 'all'
                 ? 'bg-primary/20 text-primary border-2 border-primary/30 shadow-lg'
                 : 'bg-background/50 text-foreground/70 border-2 border-border/50 hover:border-primary/30 hover:bg-background/70'
             }`}
           >
-            {categoryIcons[category]}
-            {category.charAt(0).toUpperCase() + category.slice(1)}
+            All Reports
           </button>
-        ))}
+          {(['sales', 'customer', 'inventory', 'financial'] as ReportCategory[]).map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-5 py-3 text-base font-medium rounded-modern transition-all flex items-center gap-2 ${
+                selectedCategory === category
+                  ? 'bg-primary/20 text-primary border-2 border-primary/30 shadow-lg'
+                  : 'bg-background/50 text-foreground/70 border-2 border-border/50 hover:border-primary/30 hover:bg-background/70'
+              }`}
+            >
+              {categoryIcons[category]}
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
+        {selectedCategory !== 'all' && filteredReports.length > 0 && (
+          <button
+            onClick={handleSelectAll}
+            disabled={allFilteredSelected}
+            className={`px-5 py-3 border-2 rounded-modern text-base font-medium transition-all flex items-center gap-2 ${
+              allFilteredSelected
+                ? 'bg-background/30 border-border/50 text-foreground/50 cursor-not-allowed'
+                : 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:shadow-lg'
+            }`}
+          >
+            <CheckSquare className="w-5 h-5" />
+            Select All
+          </button>
+        )}
       </div>
 
       <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-2">

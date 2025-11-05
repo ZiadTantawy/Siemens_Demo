@@ -3,11 +3,12 @@
  */
 
 import React, { useState, useMemo } from 'react';
-import { Package, Search } from 'lucide-react';
+import { Package, Search, CheckSquare } from 'lucide-react';
 import { useKnowledgeBase } from '../../../contexts/KnowledgeBaseContext';
 import { AttachedContext } from '../../../types/chat';
 import { getOrdersInDateRange, searchOrders } from '../../../services/mock/ordersMock';
 import { getDateRange } from '../../../utils/dateUtils';
+import { getProductsInCollection } from '../../../services/mock/productsMock';
 
 interface OrdersTabProps {
   selectedItems: AttachedContext[];
@@ -15,9 +16,10 @@ interface OrdersTabProps {
 }
 
 const OrdersTab: React.FC<OrdersTabProps> = ({ selectedItems, onSelectionChange }) => {
-  const { orders } = useKnowledgeBase();
+  const { orders, products, collections } = useKnowledgeBase();
   const [searchQuery, setSearchQuery] = useState('');
   const [dateRange, setDateRange] = useState<'30d' | '90d' | '365d'>('30d');
+  const [selectedCollection, setSelectedCollection] = useState<string>('all');
 
   const filteredOrders = useMemo(() => {
     let filtered = [...orders];
@@ -26,13 +28,23 @@ const OrdersTab: React.FC<OrdersTabProps> = ({ selectedItems, onSelectionChange 
     const range = getDateRange(dateRange);
     filtered = getOrdersInDateRange(filtered, range.start, range.end);
 
+    // Apply collection filter
+    if (selectedCollection !== 'all') {
+      const productsInCollection = getProductsInCollection(products, selectedCollection);
+      const productIdsInCollection = new Set(productsInCollection.map(p => p.id));
+      
+      filtered = filtered.filter(order => 
+        order.lineItems.some(item => productIdsInCollection.has(item.productId))
+      );
+    }
+
     // Apply search
     if (searchQuery) {
       filtered = searchOrders(filtered, searchQuery);
     }
 
     return filtered.slice(0, 50); // Limit to 50 for performance
-  }, [orders, dateRange, searchQuery]);
+  }, [orders, products, dateRange, selectedCollection, searchQuery]);
 
   const toggleSelection = (orderId: string, orderNumber: string) => {
     const itemId = `order_${orderId}`;
@@ -52,6 +64,25 @@ const OrdersTab: React.FC<OrdersTabProps> = ({ selectedItems, onSelectionChange 
       ]);
     }
   };
+
+  const handleSelectAll = () => {
+    const newSelections = filteredOrders.map(order => ({
+      id: `order_${order.id}`,
+      type: 'order' as const,
+      sourceId: order.id,
+      title: order.orderNumber
+    }));
+    
+    // Merge with existing selections, avoiding duplicates
+    const existingIds = new Set(selectedItems.map(item => item.id));
+    const uniqueNewSelections = newSelections.filter(item => !existingIds.has(item.id));
+    
+    onSelectionChange([...selectedItems, ...uniqueNewSelections]);
+  };
+
+  const allFilteredSelected = filteredOrders.length > 0 && filteredOrders.every(order => 
+    selectedItems.some(item => item.id === `order_${order.id}`)
+  );
 
   return (
     <div className="space-y-6">
@@ -80,6 +111,35 @@ const OrdersTab: React.FC<OrdersTabProps> = ({ selectedItems, onSelectionChange 
             Last {range === '30d' ? '30' : range === '90d' ? '90' : '365'} days
           </button>
         ))}
+      </div>
+
+      <div className="flex gap-3 items-center">
+        <select
+          value={selectedCollection}
+          onChange={(e) => setSelectedCollection(e.target.value)}
+          className="flex-1 px-5 py-4 bg-background/50 border-2 border-border/50 rounded-modern text-base text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
+        >
+          <option value="all">All Collections</option>
+          {collections.map((coll) => (
+            <option key={coll.id} value={coll.title}>
+              {coll.title}
+            </option>
+          ))}
+        </select>
+        {filteredOrders.length > 0 && (
+          <button
+            onClick={handleSelectAll}
+            disabled={allFilteredSelected}
+            className={`px-5 py-4 border-2 rounded-modern text-base font-medium transition-all flex items-center gap-2 ${
+              allFilteredSelected
+                ? 'bg-background/30 border-border/50 text-foreground/50 cursor-not-allowed'
+                : 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:shadow-lg'
+            }`}
+          >
+            <CheckSquare className="w-5 h-5" />
+            Select All
+          </button>
+        )}
       </div>
 
       <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-2">

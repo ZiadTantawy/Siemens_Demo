@@ -3,7 +3,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
-import { ShoppingBag, Search } from 'lucide-react';
+import { ShoppingBag, Search, CheckSquare } from 'lucide-react';
 import { useKnowledgeBase } from '../../../contexts/KnowledgeBaseContext';
 import { AttachedContext } from '../../../types/chat';
 import { getProductsInCollection, searchProducts } from '../../../services/mock/productsMock';
@@ -51,6 +51,25 @@ const ProductsTab: React.FC<ProductsTabProps> = ({ selectedItems, onSelectionCha
     }
   };
 
+  const handleSelectAll = () => {
+    const newSelections = filteredProducts.map(product => ({
+      id: `product_${product.id}`,
+      type: 'product' as const,
+      sourceId: product.id,
+      title: product.title
+    }));
+    
+    // Merge with existing selections, avoiding duplicates
+    const existingIds = new Set(selectedItems.map(item => item.id));
+    const uniqueNewSelections = newSelections.filter(item => !existingIds.has(item.id));
+    
+    onSelectionChange([...selectedItems, ...uniqueNewSelections]);
+  };
+
+  const allFilteredSelected = filteredProducts.length > 0 && filteredProducts.every(product => 
+    selectedItems.some(item => item.id === `product_${product.id}`)
+  );
+
   return (
     <div className="space-y-6">
       <div className="relative">
@@ -64,18 +83,34 @@ const ProductsTab: React.FC<ProductsTabProps> = ({ selectedItems, onSelectionCha
         />
       </div>
 
-      <select
-        value={selectedCollection}
-        onChange={(e) => setSelectedCollection(e.target.value)}
-        className="w-full px-5 py-4 bg-background/50 border-2 border-border/50 rounded-modern text-base text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
-      >
-        <option value="all">All Collections</option>
-        {collections.map((coll) => (
-          <option key={coll.id} value={coll.title}>
-            {coll.title}
-          </option>
-        ))}
-      </select>
+      <div className="flex gap-3 items-center">
+        <select
+          value={selectedCollection}
+          onChange={(e) => setSelectedCollection(e.target.value)}
+          className="flex-1 px-5 py-4 bg-background/50 border-2 border-border/50 rounded-modern text-base text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
+        >
+          <option value="all">All Collections</option>
+          {collections.map((coll) => (
+            <option key={coll.id} value={coll.title}>
+              {coll.title}
+            </option>
+          ))}
+        </select>
+        {selectedCollection !== 'all' && filteredProducts.length > 0 && (
+          <button
+            onClick={handleSelectAll}
+            disabled={allFilteredSelected}
+            className={`px-5 py-4 border-2 rounded-modern text-base font-medium transition-all flex items-center gap-2 ${
+              allFilteredSelected
+                ? 'bg-background/30 border-border/50 text-foreground/50 cursor-not-allowed'
+                : 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:shadow-lg'
+            }`}
+          >
+            <CheckSquare className="w-5 h-5" />
+            Select All
+          </button>
+        )}
+      </div>
 
       <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-2">
         {filteredProducts.length === 0 ? (
